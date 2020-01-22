@@ -44,10 +44,17 @@ public class MouseDrag : MonoBehaviour
             Vector3 mouseWorldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             var newPosition = new Vector3(mouseWorldPoint.x, mouseWorldPoint.y, 0);
 
-            Vector3 distance = newPosition - initialPosition;
-            Debug.Log(distance, this);
+            var distance = Vector2.Distance(newPosition, initialPosition);
 
-            transform.position = Vector3.ClampMagnitude(distance, MaxDistance);
+            if(distance > MaxDistance)
+            {
+                var direction = (newPosition - initialPosition).normalized;
+                transform.position = initialPosition + direction * MaxDistance;
+            }
+            else
+            {
+                transform.position = newPosition;
+            }
         }
 
 
