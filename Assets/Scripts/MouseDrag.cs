@@ -5,7 +5,8 @@ using UnityEngine;
 public class MouseDrag : MonoBehaviour
 {
     public float MaxDistance = 3f;
-    bool isMouseDown;
+    [HideInInspector]
+    public bool isMouseDown;
     SpringJoint2D springJoint;
     TrailRenderer trailRenderer;
     Vector3 initialPosition;

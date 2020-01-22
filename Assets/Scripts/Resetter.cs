@@ -5,41 +5,41 @@ using UnityEngine.SceneManagement;
 
 public class Resetter : MonoBehaviour
 {
-	public Rigidbody2D projectile;
-	public float resetSpeed = 1f;
+    public Rigidbody2D projectile;
+    public float resetSpeed = 1f;
+    private SpringJoint2D spring;
+    MouseDrag mouseDrag;
 
-	private float resetSpeedSqr;
-	private SpringJoint2D spring;
+    void Start()
+    {
+        mouseDrag = projectile.GetComponent<MouseDrag>();
+        spring = projectile.GetComponent<SpringJoint2D>();
+    }
 
-	void Start ()
-	{
-		resetSpeedSqr = resetSpeed * resetSpeed;
-		spring = projectile.GetComponent<SpringJoint2D> ();
-	}
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Reset();
+        }
 
-	void Update ()
-	{
-		if (Input.GetKeyDown (KeyCode.R))
-		{
-			Reset ();                                               
-		}
- 
-		if (spring == null && projectile.velocity.sqrMagnitude < resetSpeedSqr)
-		{
-			Reset ();                                               
-		}
-	}
+        Debug.Log("Velocity: " + projectile.velocity.magnitude);
+        if (!spring.enabled && !mouseDrag.isMouseDown && projectile.velocity.magnitude < resetSpeed)
+        {
+            Reset();
+        }
+    }
 
-	private void OnTriggerExit2D (Collider2D other)
-	{
-		if (other.GetComponent<Rigidbody2D> () == projectile)
-		{
-			Reset ();
-		}       
-	}
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.GetComponent<Rigidbody2D>() == projectile)
+        {
+            Reset();
+        }
+    }
 
-	private void Reset ()
-	{
-		SceneManager.LoadScene (0);
-	}
-}﻿
+    private void Reset()
+    {
+        SceneManager.LoadScene(0);
+    }
+}
