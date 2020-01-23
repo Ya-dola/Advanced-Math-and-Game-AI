@@ -6,8 +6,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public GameObject Weapon;
-    PlayerData playerData;
-    WeaponData weaponData;
+    [HideInInspector]
+    public PlayerData playerData;
+    [HideInInspector]
+    public WeaponData weaponData;
 
     private void Awake()
     {
