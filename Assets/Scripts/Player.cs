@@ -11,6 +11,11 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public WeaponData weaponData;
 
+    [HideInInspector]
+    public delegate void PlayerHit(PlayerData playerData);
+    [HideInInspector]
+    public event PlayerHit playerHit;
+
     private void Awake()
     {
         playerData = GetComponent<PlayerData>();
@@ -32,7 +37,8 @@ public class Player : MonoBehaviour
     private void TakeDamage(WeaponData opponentWeapon)
     {
         playerData.Health -= opponentWeapon.Damage;
-        if(playerData.Health <= 0)
+        playerHit?.Invoke(playerData);
+        if (playerData.Health <= 0)
         {
             //TODO: Change player sprite
             StartCoroutine(GameOver());
