@@ -10,16 +10,16 @@ public class Score : MonoBehaviour
     public Slider Player2Health;
     void Start()
     {
-        LevelManager.Instance.Player1.playerHit += Player1_playerHit;
-        LevelManager.Instance.Player2.playerHit += Player2_playerHit;
+        LevelManager.Instance.Player1.playerHit += UpdatePlayer1Health;
+        LevelManager.Instance.Player2.playerHit += UpdatePlayer2Health;
     }
 
-    private void Player2_playerHit(PlayerData playerData)
+    public void UpdatePlayer2Health(PlayerData playerData)
     {
         Player2Health.value = playerData.Health;
     }
 
-    private void Player1_playerHit(PlayerData playerData)
+    public void UpdatePlayer1Health(PlayerData playerData)
     {
         Player1Health.value = playerData.Health;
     }
