@@ -25,7 +25,7 @@ public class Weapon : MonoBehaviour
         }
     }
 
-    private void ResetWeapon()
+    public void ResetWeapon()
     {
         transform.position = initialPosition;
         spring.enabled = true;
