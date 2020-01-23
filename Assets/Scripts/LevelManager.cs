@@ -14,8 +14,10 @@ public class LevelManager : MonoBehaviour
         Instance = this;
     }
 
-    public void ShowGameOverPopUp(string player)
+    public void GameOver(string player)
     {
+        Player1.Weapon.SetActive(false);
+        Player2.Weapon.SetActive(false);
         GameOverCanvas.GetComponent<GameOver>()?.ShowGameOverCanvas(player);
     }
 }
