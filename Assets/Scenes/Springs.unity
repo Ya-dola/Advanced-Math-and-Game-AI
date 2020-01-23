@@ -202,8 +202,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: PlayAgain
+      - m_Target: {fileID: 11500000, guid: a562ee5fe0b5a43459ada076bf84c40a, type: 3}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -350,6 +350,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3014085799260539523, guid: 51b747631b8e5f844b77712d5aeb82e9,
+        type: 3}
+      propertyPath: m_Name
+      value: WeaponSprite
+      objectReference: {fileID: 0}
     - target: {fileID: 3014085799260539532, guid: 51b747631b8e5f844b77712d5aeb82e9,
         type: 3}
       propertyPath: m_ConnectedRigidBody
@@ -365,10 +370,31 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: -4.13
       objectReference: {fileID: 0}
+    - target: {fileID: 3014085799260539533, guid: 51b747631b8e5f844b77712d5aeb82e9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3014085799260539533, guid: 51b747631b8e5f844b77712d5aeb82e9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3014085799260539522, guid: 51b747631b8e5f844b77712d5aeb82e9,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bc15c6ea9b0124465b164fd3e89c578d,
+        type: 3}
+    - target: {fileID: 3014085799260539535, guid: 51b747631b8e5f844b77712d5aeb82e9,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.55
+      objectReference: {fileID: 0}
     - target: {fileID: 1760432261791096545, guid: 51b747631b8e5f844b77712d5aeb82e9,
         type: 3}
       propertyPath: Health
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51b747631b8e5f844b77712d5aeb82e9, type: 3}
@@ -1288,6 +1314,7 @@ GameObject:
   - component: {fileID: 424765053}
   - component: {fileID: 424765052}
   - component: {fileID: 424765051}
+  - component: {fileID: 424765054}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -1358,8 +1385,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: PlayAgain
+      - m_Target: {fileID: 424765054}
+        m_MethodName: Activate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1409,6 +1436,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 424765049}
   m_CullTransparentMesh: 0
+--- !u!114 &424765054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424765049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb369a135b8f9e408ea7039bf940596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1572792175}
+  Damage: 20
+  ActiveFor: 10
+  regularSprite: {fileID: 21300000, guid: bc15c6ea9b0124465b164fd3e89c578d, type: 3}
+  powerUpSprite: {fileID: 21300000, guid: a0aa6196d79b5db419e9a18c8927b98a, type: 3}
 --- !u!1 &511980356
 GameObject:
   m_ObjectHideFlags: 0
@@ -4935,8 +4979,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: PlayAgain
+      - m_Target: {fileID: 11500000, guid: f0d4b8ebf8c81924193dbf2ed372d0c8, type: 3}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4998,6 +5042,7 @@ GameObject:
   - component: {fileID: 1958667385}
   - component: {fileID: 1958667384}
   - component: {fileID: 1958667383}
+  - component: {fileID: 1958667386}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -5068,8 +5113,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: PlayAgain
+      - m_Target: {fileID: 1958667386}
+        m_MethodName: Activate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5119,6 +5164,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1958667381}
   m_CullTransparentMesh: 0
+--- !u!114 &1958667386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958667381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb369a135b8f9e408ea7039bf940596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2131244041}
+  Damage: 20
+  ActiveFor: 100
+  regularSprite: {fileID: 21300000, guid: bc15c6ea9b0124465b164fd3e89c578d, type: 3}
+  powerUpSprite: {fileID: 21300000, guid: a0aa6196d79b5db419e9a18c8927b98a, type: 3}
 --- !u!1 &1960305110
 GameObject:
   m_ObjectHideFlags: 0
@@ -5743,6 +5805,11 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -2.41
       objectReference: {fileID: 0}
+    - target: {fileID: 3014085799260539523, guid: 51b747631b8e5f844b77712d5aeb82e9,
+        type: 3}
+      propertyPath: m_Name
+      value: WeaponSprite
+      objectReference: {fileID: 0}
     - target: {fileID: 3014085799260539532, guid: 51b747631b8e5f844b77712d5aeb82e9,
         type: 3}
       propertyPath: m_ConnectedRigidBody
@@ -5758,10 +5825,36 @@ PrefabInstance:
       propertyPath: m_ConnectedAnchor.y
       value: -4.13
       objectReference: {fileID: 0}
+    - target: {fileID: 3014085799260539533, guid: 51b747631b8e5f844b77712d5aeb82e9,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3014085799260539533, guid: 51b747631b8e5f844b77712d5aeb82e9,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3014085799260539533, guid: 51b747631b8e5f844b77712d5aeb82e9,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3014085799260539522, guid: 51b747631b8e5f844b77712d5aeb82e9,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bc15c6ea9b0124465b164fd3e89c578d,
+        type: 3}
+    - target: {fileID: 3014085799260539535, guid: 51b747631b8e5f844b77712d5aeb82e9,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.55
+      objectReference: {fileID: 0}
     - target: {fileID: 1760432261791096545, guid: 51b747631b8e5f844b77712d5aeb82e9,
         type: 3}
       propertyPath: Health
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51b747631b8e5f844b77712d5aeb82e9, type: 3}
