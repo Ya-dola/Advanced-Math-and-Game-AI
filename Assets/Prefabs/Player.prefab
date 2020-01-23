@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 3014085799260539534}
   - component: {fileID: 3014085799260539529}
   - component: {fileID: 6970296443735277608}
+  - component: {fileID: 8436770060308068896}
   - component: {fileID: 3014085799260539535}
   - component: {fileID: 3014085799260539532}
   - component: {fileID: 3014085799260539531}
@@ -167,6 +168,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
+--- !u!114 &8436770060308068896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3014085799260539523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94ed6be7533196f4a918fba249338052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!58 &3014085799260539535
 CircleCollider2D:
   m_ObjectHideFlags: 0
