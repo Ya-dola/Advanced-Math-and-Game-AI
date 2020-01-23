@@ -44,13 +44,14 @@ GameObject:
   - component: {fileID: 3014085799260539522}
   - component: {fileID: 3014085799260539534}
   - component: {fileID: 3014085799260539529}
+  - component: {fileID: 6970296443735277608}
   - component: {fileID: 3014085799260539535}
   - component: {fileID: 3014085799260539532}
   - component: {fileID: 3014085799260539531}
   - component: {fileID: 3014085799260539528}
   m_Layer: 0
   m_Name: AsteroidSprite
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -152,6 +153,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxDistance: 3
+  isMouseDown: 0
+--- !u!114 &6970296443735277608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3014085799260539523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c630ddf1f48bbf41a2eb8f2c1273216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 10
 --- !u!58 &3014085799260539535
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -392,9 +407,11 @@ GameObject:
   - component: {fileID: 3014085799910938891}
   - component: {fileID: 3014085799910938901}
   - component: {fileID: 3014085799910938900}
+  - component: {fileID: 1028693230}
+  - component: {fileID: 1760432261791096545}
   m_Layer: 0
-  m_Name: PlankSprite_0
-  m_TagString: Untagged
+  m_Name: PlayerSprite
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -408,7 +425,7 @@ Transform:
   m_GameObject: {fileID: 3014085799910938888}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 3014085798861213916}
   m_RootOrder: 0
@@ -451,7 +468,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7195817935496006023, guid: 418ab5c27d3054eb89959d9c715e00c9,
+  m_Sprite: {fileID: 8051579698515443948, guid: a9c136f9dcfd3954fa0f3fab6260607f,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -497,16 +514,42 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.00784111, y: 0.000000059604645}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.66, y: 0.4}
+    oldSize: {x: 1.28, y: 0.67}
     newSize: {x: 1.66, y: 0.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.66, y: 0.4}
+  m_Size: {x: 1.0588465, y: 0.6613711}
   m_EdgeRadius: 0
+--- !u!114 &1028693230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3014085799910938888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba1451d284732424e894658e18fce0fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weapon: {fileID: 3014085799260539523}
+--- !u!114 &1760432261791096545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3014085799910938888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8f8a4cb64940b34f86238559fb0ae24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100

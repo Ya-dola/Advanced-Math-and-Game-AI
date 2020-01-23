@@ -19,6 +19,7 @@ public class MouseDrag : MonoBehaviour
     }
     void OnMouseDown()
     {
+        initialPosition = transform.position;
         isMouseDown = true;
         springJoint.enabled = false;
         trailRenderer.enabled = false;

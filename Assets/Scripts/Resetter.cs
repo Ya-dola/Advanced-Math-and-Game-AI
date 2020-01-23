@@ -23,7 +23,7 @@ public class Resetter : MonoBehaviour
             Reset();
         }
 
-        Debug.Log("Velocity: " + projectile.velocity.magnitude);
+        //Debug.Log("Velocity: " + projectile.velocity.magnitude);
         if (!spring.enabled && !mouseDrag.isMouseDown && projectile.velocity.magnitude < resetSpeed)
         {
             Reset();
