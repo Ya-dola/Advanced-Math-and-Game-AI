@@ -41,6 +41,6 @@ public class Player : MonoBehaviour
     IEnumerator GameOver()
     {
         yield return new WaitForSeconds(1.5f);
-        LevelManager.Instance.ShowGameOverPopUp();
+        LevelManager.Instance.ShowGameOverPopUp(gameObject.tag);
     }
 }

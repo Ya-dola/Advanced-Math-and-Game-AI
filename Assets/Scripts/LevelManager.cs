@@ -5,13 +5,14 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance;
+    public GameObject GameOverCanvas;
     public float ResetSpeed = 1f;
     private void Awake()
     {
         Instance = this;
     }
 
-    public void ShowGameOverPopUp() {
-
+    public void ShowGameOverPopUp(string player) {
+        GameOverCanvas.GetComponent<GameOver>()?.ShowGameOverCanvas(player);
     }
 }
