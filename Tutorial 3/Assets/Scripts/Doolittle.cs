@@ -1,13 +1,11 @@
 ﻿using System;
+using UnityEngine;
 
 public class Doolittle
 {
     // C# Program to decompose a matrix into 
     // lower and upper traingular matrix
-
-    //static int MAX = 100; 
-    static String s = "";
-    static void luDecomposition(int[,] mat, int n)
+    public static void LUDecomposition(int[,] mat, int n)
     {
         int[,] lower = new int[n, n];
         int[,] upper = new int[n, n];
@@ -49,39 +47,40 @@ public class Doolittle
             }
         }
 
-        // setw is for displaying nicely 
-        Console.WriteLine(setw(2) + "	 Lower Triangular"
-            + setw(10) + "Upper Triangular");
+        PrintLU(n, lower, upper);
+    }
 
+    private static void PrintLU(int n, int[,] lower, int[,] upper)
+    {
+        // SetWhiteSpace is for displaying nicely 
+        Debug.Log("Doolittle for LU decomposition\n*************************************\n");
+
+        var output = "";
         // Displaying the result : 
         for (int i = 0; i < n; i++)
         {
             // Lower 
             for (int j = 0; j < n; j++)
-                Console.Write(setw(4) + lower[i, j] + "\t");
-            Console.Write("\t");
+            {
+                output += SetWhiteSpace(4) + lower[i, j] + "\t";
+            }
+            output += "\t";
 
             // Upper 
             for (int j = 0; j < n; j++)
-                Console.Write(setw(4) + upper[i, j] + "\t");
-            Console.Write("\n");
+            {
+                output += SetWhiteSpace(4) + upper[i, j] + "\t";
+            }
+            output += "\n";
         }
+        Debug.Log(output);
     }
-    static String setw(int noOfSpace)
+
+    private static string SetWhiteSpace(int noOfSpace)
     {
-        s = "";
+        var s = "";
         for (int i = 0; i < noOfSpace; i++)
             s += " ";
         return s;
     }
-
-	// Driver code 
-	//public static void Main(String[] arr)
-	//{
-	//	int[,] mat = { { 2, -1, -2 },
-	//				{ -4, 6, 3 },
-	//				{ -4, -2, 8 } };
-
-	//	luDecomposition(mat, 3);
-	//}
 }
