@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AABBInAAB : MonoBehaviour
+public class AABBInAABB : MonoBehaviour
 {
     public Transform TestPoint;
     public Material CollisionMaterial;
