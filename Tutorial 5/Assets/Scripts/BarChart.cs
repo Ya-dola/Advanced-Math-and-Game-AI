@@ -10,6 +10,7 @@ public class BarChart : MonoBehaviour
     public GameObject ChartBar;
     public TextMeshPro Text;
     public RandomNumberGenerator randomNumberGenerator;
+    public bool UpdateCameraPosition;
 
     private Transform HorizontalTexts;
     private Transform VerticalTexts;
@@ -28,7 +29,7 @@ public class BarChart : MonoBehaviour
         DestroyChildrenObjects(HorizontalTexts);
         DestroyChildrenObjects(VerticalTexts);
         DestroyChildrenObjects(Bars);
-        
+
         CreateChart();
     }
 
@@ -36,7 +37,12 @@ public class BarChart : MonoBehaviour
     {
         var values = randomNumberGenerator.Generate(randomNumberGenerator.NumberOfRolls, randomNumberGenerator.NumberOfFaces);
         var groupedValues = randomNumberGenerator.GroupAllValues(values);
+        DrawChart(groupedValues);
+    }
 
+    public void DrawChart(Dictionary<int,int> groupedValues)
+    {
+        //X Axis
         for (int i = 1; i <= randomNumberGenerator.NumberOfFaces; i++)
         {
             if (groupedValues.ContainsKey(i))
@@ -49,10 +55,24 @@ public class BarChart : MonoBehaviour
             //horizontal text
             var xText = Instantiate(Text.gameObject, new Vector3(i + (i * XSpacing), -1, 0), Quaternion.identity, HorizontalTexts);
             xText.GetComponent<TextMeshPro>().text = i.ToString();
+        }
 
+        //Y Axis
+        for (int i = 1; i <= randomNumberGenerator.NumberOfRolls; i++)
+        {
             //vertical text
             var yText = Instantiate(Text.gameObject, new Vector3(-1, i + (i * YSpacing), 0), Quaternion.identity, VerticalTexts);
             yText.GetComponent<TextMeshPro>().text = i.ToString();
+        }
+
+        //Update Camera position
+        if (UpdateCameraPosition)
+        {
+            var halfXSize = randomNumberGenerator.NumberOfFaces / 2;
+            var xPos = halfXSize * XSpacing + halfXSize;
+            var YPos = randomNumberGenerator.NumberOfRolls / 2 * YSpacing + 1;
+            var startZoom = -14;
+            Camera.main.transform.localPosition = new Vector3(xPos, YPos, startZoom - (XSpacing - 1) * halfXSize);
         }
     }
 
