@@ -59,7 +59,18 @@ public class RandomNumberGenerator : MonoBehaviour
         Debug.Log("*******************************");
 
         return result;
+    }
 
+    public float GetAverage(Dictionary<int, int> groupedValues)
+    {
+        var result = 0f;
+
+        foreach (var item in groupedValues)
+        {
+            result += item.Key * item.Value;
+        }
+
+        return result / NumberOfFaces;
     }
 
 }

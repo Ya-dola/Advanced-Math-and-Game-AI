@@ -525,7 +525,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 516237601}
-        m_MethodName: RebuildChart
+        m_MethodName: CreateChart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -621,12 +621,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cbc1553996e0b41b16fb9748e17e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartingPosition: {x: 0, y: 0, z: 0}
   XSpacing: 1
   YSpacing: 1
   ChartBar: {fileID: 6826014070300698341, guid: 7d9466210e6a6e745b323551fd646dd0,
     type: 3}
   Text: {fileID: 7782234293391151211, guid: a2d91b203a694624d815afb8e227e41f, type: 3}
-  randomNumberGenerator: {fileID: 1305343702}
+  RandomNumberGenerator: {fileID: 1305343702}
   UpdateCameraPosition: 1
 --- !u!1 &705507993
 GameObject:
