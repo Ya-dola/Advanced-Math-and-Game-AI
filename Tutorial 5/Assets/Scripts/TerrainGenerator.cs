@@ -13,6 +13,7 @@ public class TerrainGenerator : MonoBehaviour
 
     private Vector3[] vertices;
     private int[] trianglePoints;
+    Vector2[] uvs;
     private Mesh mesh;
     private MeshFilter meshFilter;
     // Start is called before the first frame update
@@ -44,12 +45,13 @@ public class TerrainGenerator : MonoBehaviour
         mesh.Clear();
         mesh.vertices = vertices;
         mesh.triangles = trianglePoints;
+        mesh.uv = uvs;
         mesh.RecalculateNormals();
     }
 
     void CreateMesh()
     {
-
+        //Vertices
         vertices = new Vector3[(Width + 1) * (Depth + 1)];
 
         int i = 0;
@@ -57,11 +59,13 @@ public class TerrainGenerator : MonoBehaviour
         {
             for (int x = 0; x <= Width; x++)
             {
-                vertices[i] = new Vector3(x, 0, z);
+                float y = Mathf.PerlinNoise(x * 0.4f, z * 0.4f) * 3f;
+                vertices[i] = new Vector3(x, y, z);
                 i++;
             }
         }
 
+        //Triangles
         trianglePoints = new int[Width * Depth * 6];
         int currentTrianglePoint = 0;
         int currentVertexPoint = 0;
@@ -81,6 +85,18 @@ public class TerrainGenerator : MonoBehaviour
                 currentTrianglePoint += 6;
             }
             currentVertexPoint++;
+        }
+
+        //UVs
+        uvs = new Vector2[vertices.Length];
+        i = 0;
+        for (int z = 0; z <= Depth; z++)
+        {
+            for (int x = 0; x <= Width; x++)
+            {
+                uvs[i] = new Vector2((float)x / Width, (float)z / Depth);
+                i++;
+            }
         }
     }
 }
