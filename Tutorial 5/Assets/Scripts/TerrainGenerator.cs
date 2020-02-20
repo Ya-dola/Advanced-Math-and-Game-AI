@@ -37,7 +37,7 @@ public class TerrainGenerator : MonoBehaviour
     private float minHeight;
     private float maxHeight;
     // Start is called before the first frame update
-    void Update()
+    void Start()
     {
         mesh = new Mesh();
         mesh.name = "Procedural Terrain";
