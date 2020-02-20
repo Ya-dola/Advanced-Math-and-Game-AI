@@ -7,6 +7,7 @@ public class TerrainGenerator : MonoBehaviour
 {
     public int Width;
     public int Depth;
+    public Gradient gradient;
     [Header("Vertex visualization")]
     public GameObject VertexObject;
     public bool VisualizeVertices;
@@ -14,8 +15,11 @@ public class TerrainGenerator : MonoBehaviour
     private Vector3[] vertices;
     private int[] trianglePoints;
     Vector2[] uvs;
+    Color[] colors;
     private Mesh mesh;
     private MeshFilter meshFilter;
+    private float minHeight;
+    private float maxHeight;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +50,7 @@ public class TerrainGenerator : MonoBehaviour
         mesh.vertices = vertices;
         mesh.triangles = trianglePoints;
         mesh.uv = uvs;
+        mesh.colors = colors;
         mesh.RecalculateNormals();
     }
 
@@ -61,6 +66,14 @@ public class TerrainGenerator : MonoBehaviour
             {
                 float y = Mathf.PerlinNoise(x * 0.4f, z * 0.4f) * 3f;
                 vertices[i] = new Vector3(x, y, z);
+                if(y > maxHeight)
+                {
+                    maxHeight = y;
+                }
+                if(y < minHeight)
+                {
+                    minHeight = y;
+                }
                 i++;
             }
         }
@@ -95,6 +108,19 @@ public class TerrainGenerator : MonoBehaviour
             for (int x = 0; x <= Width; x++)
             {
                 uvs[i] = new Vector2((float)x / Width, (float)z / Depth);
+                i++;
+            }
+        }
+
+        //Colors
+        colors = new Color[vertices.Length];
+        i = 0;
+        for (int z = 0; z <= Depth; z++)
+        {
+            for (int x = 0; x <= Width; x++)
+            {
+                float height = Mathf.InverseLerp(minHeight, maxHeight, vertices[i].y);
+                colors[i] = gradient.Evaluate(height);
                 i++;
             }
         }
